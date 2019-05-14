@@ -1,3 +1,5 @@
+[![Version](https://img.shields.io/nuget/v/EricD.Kentico.MvcWidget.ContainerCustomizer.svg)](https://www.nuget.org/packages/EricD.Kentico.MvcWidget.ContainerCustomizer)
+
 # Container customizer MVC widget
 
 This custom MVC widget allows content editors to define styles for small sections of an MVC page without needing knowledge of CSS.
@@ -13,7 +15,7 @@ You can use Visual Studio's Package Manager to install the widget from [NuGet](h
 When you first place the widget on a page, it will attempt to locate a parent &lt;div&gt; element to customize. We recommend that you instead create your widget sections with a surrounding element and a custom class, e.g.
 
 ```
-<div class="row single-column-section-parent">
+<div class="single-column-section-parent">
     @Html.Kentico().WidgetZone()
 </div>
 ```
