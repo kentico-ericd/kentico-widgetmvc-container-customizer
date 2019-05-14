@@ -1,0 +1,102 @@
+﻿@using KenticoMarketplace.Models.InlineEditors.FontFamilyEditor
+@using KenticoMarketplace.Models.Widgets.ContainerCustomizerWidget
+@using KenticoMarketplace.Models.InlineEditors.FontSizeEditor
+@using KenticoMarketplace.Models.InlineEditors.ColorSelectorEditor
+@using KenticoMarketplace.Models.InlineEditors.BackgroundImageEditor
+@model ContainerCustomizerWidgetViewModel
+<div style="display:none" class=".ccw-hidden-div" id="ccw-hidden-div-@Model.InstanceID"></div>
+
+@{
+    string label = "<b>You are currently customizing " + ((string.IsNullOrEmpty(Model.TargetID)) ?
+        " a dynamically selected element</b><br/>The styles displayed on this page may not be accurate, but you can preview this page to see the full results. You can enter classnames and other CSS selectors to identify the customizable element in the widget properties.<br/><br/>Ask your developer if you're not sure how to do this."
+        : "'" + Model.TargetID + "'</b>");
+}
+
+@if (Context.Kentico().PageBuilder().EditMode)
+{
+    <div class="ccw-main">
+        @{
+            @Html.Raw(label)
+            <div class="ccw-inline-editors">
+                <p>
+                    @{
+                        Html.RenderPartial("InlineEditors/_ColorSelectorEditor", new ColorSelectorEditorViewModel
+                        {
+                            PropertyName = nameof(ContainerCustomizerWidgetProperties.BgColor),
+                            Value = Model.BgColor,
+                            Label = "Background color"
+                        });
+                    }
+                </p>
+                <p>
+                    @{
+                        Html.RenderPartial("InlineEditors/_BackgroundImageEditor", new BackgroundImageEditorViewModel
+                        {
+                            PropertyName = nameof(ContainerCustomizerWidgetProperties.BgImage),
+                            Value = Model.BgImage
+                        });
+                    }
+                </p>
+                <p>
+                    @{
+                        Html.RenderPartial("InlineEditors/_ColorSelectorEditor", new ColorSelectorEditorViewModel
+                        {
+                            PropertyName = nameof(ContainerCustomizerWidgetProperties.FgColor),
+                            Value = Model.FgColor,
+                            Label = "Foreground color"
+                        });
+                    }
+                </p>
+                <p>
+                    @{
+                        Html.RenderPartial("InlineEditors/_FontFamilyEditor", new FontFamilyEditorViewModel
+                        {
+                            PropertyName = nameof(ContainerCustomizerWidgetProperties.FontFamily),
+                            Value = Model.FontFamily
+                        });
+                    }
+                </p>
+                <p>
+                    @{
+                        Html.RenderPartial("InlineEditors/_FontSizeEditor", new FontSizeEditorViewModel
+                        {
+                            PropertyName = nameof(ContainerCustomizerWidgetProperties.FontSize),
+                            Value = Model.FontSize
+                        });
+                    }
+                </p>
+            </div>
+        }
+    </div>
+}
+
+<script type="text/javascript">
+    var container;
+    @if(string.IsNullOrEmpty(Model.TargetID))
+    {
+        WriteLiteral("var div = document.querySelector('#ccw-hidden-div-" + Model.InstanceID + "');");
+        WriteLiteral("container = div.closest('div:not(#ccw-hidden-div-" + Model.InstanceID + ")');");
+    }
+    else {
+        WriteLiteral("var div = document.querySelector('#ccw-hidden-div-" + Model.InstanceID + "');");
+        WriteLiteral("container = div.closest('"+ Model.TargetID + "');");
+    }
+
+    if (container != undefined) {
+        container.style.fontFamily = "@Model.FontFamily";
+        container.style.color = "@Model.FgColor";
+        container.style.fontSize = "@Model.FontSize";
+        @if (!string.IsNullOrEmpty(Model.BgImage))
+        {
+            WriteLiteral("container.style.background = \"url('" + Model.BgImage + "')\";");
+        }
+        else {
+            WriteLiteral("container.style.background = '" + Model.BgColor + "';");
+        }
+        
+        //reset color for inline editor inputs
+        container.querySelectorAll('.ccw-font-box, .ccw-font-size-box, .ccw-url-box').forEach(function (box) {
+            box.style.color = '#111';
+        });
+    }
+</script>

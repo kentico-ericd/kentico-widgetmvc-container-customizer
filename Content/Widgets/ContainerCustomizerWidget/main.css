@@ -1,0 +1,39 @@
+﻿.ccw-main {
+    padding: 10px;
+}
+
+.ccw-inline-editors {
+    margin-top: 20px;
+}
+
+#ccw-color-input {
+    -webkit-appearance: none;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000;
+}
+
+#ccw-color-input:hover {
+    cursor: pointer;
+}
+
+#ccw-color-input::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+#ccw-color-input::-webkit-color-swatch {
+    border: none;
+}
+
+#ccw-color-input::-moz-color-swatch {
+    border: none;
+}
+
+.ccw-main input[type='text'] {
+    padding-left: 5px;
+}
+
+.ccw-font-size-box {
+    width: 60px;
+}

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>EricD.Kentico.MvcWidget.ContainerCustomizer</id>
+    <version>12.0.0</version>
+    <authors>EricD</authors>
+    <owners>EricD</owners>
+    <projectUrl>https://github.com/kentico-ericd/kentico-widgetmvc-image-carousel</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Container customizer widget for Kentico MVC</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>Kentico MVC widget container customizer</tags>
+    <dependencies>
+      <dependency id="Kentico.Libraries" version="12.0.0" />
+    </dependencies>
+  </metadata>
+  <files>
+	  <file src="bin\Debug\kentico-widgetmvc-container-customizer.dll" target="lib\net461\kentico-widgetmvc-container-customizer.dll" />
+    <file src="Content\InlineEditors\BackgroundImageEditor\backgroundimageeditor.js" target="content\Content\InlineEditors\BackgroundImageEditor\backgroundimageeditor.js" />
+    <file src="Content\InlineEditors\ColorSelectorEditor\colorselectoreditor.js" target="content\Content\InlineEditors\ColorSelectorEditor\colorselectoreditor.js" />
+    <file src="Content\InlineEditors\FontFamilyEditor\fontfamilyeditor.js" target="content\Content\InlineEditors\FontFamilyEditor\fontfamilyeditor.js" />
+    <file src="Content\InlineEditors\FontSizeEditor\fontsizeeditor.js" target="content\Content\InlineEditors\FontSizeEditor\fontsizeeditor.js" />
+    <file src="Content\Widgets\ContainerCustomizerWidget\main.css" target="content\Content\Widgets\ContainerCustomizerWidget\main.css" />
+    <file src="Views\Shared\InlineEditors\_BackgroundImageEditor.cshtml" target="content\Views\Shared\InlineEditors\_BackgroundImageEditor.cshtml" />
+    <file src="Views\Shared\InlineEditors\_ColorSelectorEditor.cshtml" target="content\Views\Shared\InlineEditors\_ColorSelectorEditor.cshtml" />
+    <file src="Views\Shared\InlineEditors\_FontFamilyEditor.cshtml" target="content\Views\Shared\InlineEditors\_FontFamilyEditor.cshtml" />
+    <file src="Views\Shared\InlineEditors\_FontSizeEditor.cshtml" target="content\Views\Shared\InlineEditors\_FontSizeEditor.cshtml" />
+    <file src="Views\Shared\Widgets\_ContainerCustomizerWidget.cshtml" target="content\Views\Shared\Widgets\_ContainerCustomizerWidget.cshtml" />
+  </files>
+</package>

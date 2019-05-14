@@ -1,0 +1,9 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@using KenticoMarketplace.Models.InlineEditors.FontFamilyEditor
+@model FontFamilyEditorViewModel
+
+@using (Html.Kentico().BeginInlineEditor("font-family-editor", Model.PropertyName))
+{
+    <span>Font family:</span> @Html.TextBox("font-family-box", Model.Value, new { @class = "ccw-font-box" }); <span style="font-family:@Model.Value">Push enter to preview font</span>
+}

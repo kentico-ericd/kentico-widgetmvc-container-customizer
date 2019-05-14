@@ -1,0 +1,9 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@using KenticoMarketplace.Models.InlineEditors.BackgroundImageEditor
+@model BackgroundImageEditorViewModel
+
+@using (Html.Kentico().BeginInlineEditor("background-image-editor", Model.PropertyName))
+{
+    <span>Background image:</span> @Html.TextBox("url-box", Model.Value, new { @class = "ccw-url-box", placeholder = "Enter URL" }); <span>Push enter to preview image</span>
+}

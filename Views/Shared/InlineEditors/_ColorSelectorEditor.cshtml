@@ -1,0 +1,9 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@using KenticoMarketplace.Models.InlineEditors.ColorSelectorEditor
+@model ColorSelectorEditorViewModel
+
+@using (Html.Kentico().BeginInlineEditor("color-selector-editor", Model.PropertyName))
+{
+    <span>@Model.Label&#58;</span> <input id="ccw-color-input" value="@Model.Value" type="color" />
+}

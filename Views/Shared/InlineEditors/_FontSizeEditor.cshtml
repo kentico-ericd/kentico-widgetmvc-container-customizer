@@ -1,0 +1,9 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@using KenticoMarketplace.Models.InlineEditors.FontSizeEditor
+@model FontSizeEditorViewModel
+
+@using (Html.Kentico().BeginInlineEditor("font-size-editor", Model.PropertyName))
+{
+    <span>Font size:</span> @Html.TextBox("font-size-box", Model.Value, new { @class = "ccw-font-size-box" }); <span style="font-size:@Model.Value">Push enter to preview font</span>
+}
